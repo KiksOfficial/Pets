@@ -1,21 +1,55 @@
 body {
-    background-color: seashell;
-    font-family: Arial, Helvetica, sans-serif;
+    background-color: #FFDAB9;
+    font-family: Arial, sans-serif;
+    margin: 0;
 }
 
 header {
-    background-color: darksalmon;
+    background-color: #F4978E;
+    padding: 10px 10px;
+    color: black;
 }
 
-h1 {
+header h1 {
     font-size: 36px;
     font-weight: bold;
+    margin: 0;
 }
 
-h3 {
+header p {
+    font-size: 18px;
+}
+
+nav {
+    background-color: #F8AD9D;
+    padding: 15px;
+}
+
+nav a {
+    font-weight: bold;
+    color: black;
+}
+
+.kategooriad {
+    padding: 15px;
+    width: 65%;
+    color: black;
+}
+
+.kategooria {
+    display: block;
+    background-color: #FBC4AB;
+    padding: 20px 25px;
+    margin: 15px;
+    border-radius: 10px;
+    color: black;
+}
+
+.kategooria h3 {
     font-size: 20px;
 }
 
-p {
+.kategooria p {
     font-size: 16px;
 }
+
