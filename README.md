@@ -9,3 +9,5 @@ Marcus Ariston Kikerpill – Virtuaalkass ja avaleht
 Rivo Pruus – Plinko mini-mäng
 
 Egert Kerve – Foorum ja kasside hindamine
+
+[Rühmatöö normid ja plaan](https://docs.google.com/spreadsheets/d/1mBkRB4aNASoTKHZCrk18Uf0brQlWPLrhvtx4mXVjwF0/edit?gid=0#gid=0)
