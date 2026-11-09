@@ -1,18 +1,38 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   padding: 0;
 }
 
 .header {
-  background-color: grey;
   width: 100%;
   padding: 15px 20px;
+  height: 10vh;
   gap: 20px;
   display: flex;
   align-items: center;
+  background: linear-gradient(to right, #8693ab, #bdd4e7);
 }
 
 .header_button {
   background-color: #04aa6d;
   text-decoration: none;
+}
+
+.home_mid_section {
+  height: 85vh;
+  background-color: darkgoldenrod;
+}
+
+.home_footer {
+  height: 5vh;
+  bottom: 0;
+  position: fixed;
+  width: 100%;
+  background-color: darkorchid;
 }
