@@ -28,6 +28,7 @@ body {
   padding: 12px 24px;
   border-radius: 30px;
   font-weight: 600;
+  color: black;
 }
 
 .header-button:hover {
