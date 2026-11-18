@@ -28,11 +28,17 @@ nav {
 nav a {
     font-weight: bold;
     color: black;
+    text-decoration: none;
+    margin: 10px;
+}
+
+nav a:hover {
+    color: white;
 }
 
 .kategooriad {
     padding: 15px;
-    width: 65%;
+    width: 60%;
     color: black;
 }
 
@@ -40,16 +46,24 @@ nav a {
     display: block;
     background-color: #FBC4AB;
     padding: 20px 25px;
-    margin: 15px;
+    margin: 15px 0;
     border-radius: 10px;
     color: black;
+    text-decoration: none;
+}
+
+.kategooria:hover {
+    background-color: #F8AD9D;
 }
 
 .kategooria h3 {
     font-size: 20px;
+    margin: 0 0 8px;
 }
 
 .kategooria p {
     font-size: 16px;
+    text-decoration: none;
+    margin: 0;
 }
 
