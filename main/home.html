@@ -9,17 +9,20 @@
       href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;750&display=swap"
       rel="stylesheet"
     />
-    <link rel="icon" href="data:," />
     <title>Kodu</title>
     <link href="../styles/home.css" rel="stylesheet" />
+    <link rel="icon" href="data:," />
   </head>
+
   <body>
     <div class="header">
       <a class="header-button" href="plinko.html">Plinko</a>
       <a class="header-button" href="home.html">Kodu</a>
       <a class="header-button" href="foorum.html">Foorum</a>
       <div class="header-right">
-        <p>Kassitoit: <span id="kassitoit"></span></p>
+        <p id="kassitoit-kogus-tekst">
+          Kassitoit: <span id="kassitoit"></span>
+        </p>
         <svg
           class="main_icon lucide lucide-cat preview-icon"
           xmlns="http://www.w3.org/2000/svg"
@@ -42,17 +45,23 @@
       </div>
     </div>
     <div class="home-mid-section">
-      <div class="stats">
-        <progress id="hunger" value="50" max="100"></progress>
-        <img id="syda" src="../images/syda.png" hidden />
+      <div class="home-mid-section-left"></div>
+      <div class="home-mid-section-mid">
+        <div class="stats">
+          <progress id="hunger" value="100" max="100"></progress>
+          <img id="syda" src="../images/syda.png" hidden />
+        </div>
+        <img id="pets" src="../images/Pets.png" alt="Pets" />
+        <button onclick="toggleImg()" id="feed-btn" class="feed_button">
+          Toida kassi
+        </button>
       </div>
-      <img id="pets" src="../images/Pets.png" alt="Pets" />
-      <button onclick="toggleImg()" id="feed-btn" class="feed_button">
-        Toida kassi
-      </button>
+      <div class="home-mid-section-right">
+        <p id="tsitaat"></p>
+      </div>
     </div>
     <div class="home-footer">
-      <h1>Placeholder</h1>
+      <h1>Pets</h1>
     </div>
     <script src="../js_scripts/home.js"></script>
   </body>
