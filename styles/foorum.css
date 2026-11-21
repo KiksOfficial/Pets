@@ -45,7 +45,7 @@ nav a:hover {
 
 .kategooriad {
     display: inline-block;
-    width: 58%;
+    width: 63%;
     vertical-align: top;
 }
 
@@ -76,8 +76,12 @@ nav a:hover {
 
 .edetabel {
     display: inline-block;
-    width: 40%;
+    width: 35%;
     vertical-align: top;
+}
+
+.top2 {
+     margin-bottom: 20px;
 }
 
 .top2 .kass {
@@ -97,6 +101,9 @@ nav a:hover {
     text-align: center;
 }
 
+.kass h3{
+    margin: 10px 0 5px;
+}
 
 .kass img {
     width: 100%;
