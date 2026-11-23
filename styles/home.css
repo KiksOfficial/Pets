@@ -36,13 +36,45 @@ body {
 }
 
 .home-mid-section {
-  height: 85vh;
-  background-color: #f4978e;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  align-items: center;
+  min-height: calc(100vh - 120px);
+  padding: 20px;
+  background: radial-gradient(
+    circle at 50% 52%,
+    #ffb4a8 0%,
+    #f69388 45%,
+    #e57a6e 100%
+  );
+}
+
+.home-mid-section-mid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.home-mid-section-right {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  gap: 20px;
+  align-items: flex-start;
+  width: fit-content;
+  max-width: 260px;
+  min-height: 90px;
+  padding: 16px 20px;
+  margin-left: 28px;
+  background-color: #ffdab9;
+  border: 2px solid #e5a98b;
+  border-radius: 20px;
+  box-shadow: 0 6px 14px rgba(112, 128, 144, 0.35);
+}
+
+#tsitaat {
+  font-size: 16px;
+  font-weight: 700;
 }
 
 #pets {
@@ -116,12 +148,12 @@ body {
 }
 
 #hunger::-webkit-progress-value {
-  background: linear-gradient(90deg, #ff7b7b, #ff4b4b);
+  background-color: #ff4b4b;
   border-radius: 8px;
 }
 
 #hunger::-moz-progress-bar {
-  background: linear-gradient(90deg, #ff7b7b, #ff4b4b);
+  background: #ff4b4b;
   border-radius: 8px;
 }
 
