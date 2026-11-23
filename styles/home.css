@@ -132,9 +132,12 @@ body {
 }
 
 #hunger {
+  position: absolute;
+  top: 25px;
+  left: 25%;
   appearance: none;
   -webkit-appearance: none;
-  width: 260px;
+  width: 50%;
   height: 22px;
   border: 2px solid #e08b8b;
   border-radius: 12px;
@@ -157,18 +160,21 @@ body {
   border-radius: 8px;
 }
 
+.pets_syda {
+  position: relative;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
 #syda {
+  position: absolute;
+  top: 60px;
+  left: 180px;
   width: 40px;
   height: 40px;
   object-fit: contain;
-}
-
-.stats {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  justify-content: center;
-  margin-top: 20px;
+  pointer-events: none;
 }
 
 /*
