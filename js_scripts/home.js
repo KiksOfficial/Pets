@@ -21,6 +21,8 @@ const tsitaadid = [
   "Just remember ALL CAPS when you spell the man name",
   "There's only one beer left",
   "Cruising down the street in my 6-4",
+  "Living off borrowed time, the clock tick faster",
+  "If you want to be the best, you've got the beat the best, and the best is 'Blessed,' baby",
 ];
 
 function kuvaTsitaat() {

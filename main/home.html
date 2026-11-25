@@ -1,3 +1,12 @@
+<!--
+
+Not allowed to load local resource: file:///favicon.ico
+See error tekib, kui displayd faili home.html siu browseris, aga
+kui home.html fail http serverina jookseb pole seda errorit.
+<link rel="icon" href="data:," /> ei aita
+
+-->
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -47,11 +56,12 @@
     <div class="home-mid-section">
       <div class="home-mid-section-left"></div>
       <div class="home-mid-section-mid">
-        <div class="stats">
+        <div class="pets_syda">
           <progress id="hunger" value="100" max="100"></progress>
           <img id="syda" src="../images/syda.png" hidden />
+          <img id="pets" src="../images/Pets.png" alt="Pets" />
         </div>
-        <img id="pets" src="../images/Pets.png" alt="Pets" />
+
         <button onclick="toggleImg()" id="feed-btn" class="feed_button">
           Toida kassi
         </button>
