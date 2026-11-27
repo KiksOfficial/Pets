@@ -1,155 +1,164 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="et">
-<head>
-    <meta charset="UTF-8">
-    <meta name = "viewport" content ="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../styles/foorum.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../styles/foorum.css" />
+    <link href="../styles/main.css" rel="stylesheet" />
+
     <title>Foorum</title>
-</head>
-<body>
-    
+  </head>
+  <body>
+    <div class="header">
+      <a class="header-button" href="plinko.html">Plinko</a>
+      <a class="header-button" href="home.html">Kodu</a>
+      <a class="header-button" href="foorum.html">Foorum</a>
+      <div class="header-right">
+        <p id="kassitoit-kogus-tekst">
+          Kassitoit: <span id="kassitoit"></span>
+        </p>
+        <svg
+          class="main_icon lucide lucide-cat preview-icon"
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path
+            d="M12 5c.67 0 1.35.09 2 .26 1.78-2 5.03-2.84 6.42-2.26 1.4.58-.42 7-.42 7 .57 1.07 1 2.24 1 3.44C21 17.9 16.97 21 12 21s-9-3-9-7.56c0-1.25.5-2.4 1-3.44 0 0-1.89-6.42-.5-7 1.39-.58 4.72.23 6.5 2.23A9.04 9.04 0 0 1 12 5Z"
+          />
+          <path d="M8 14v.5" />
+          <path d="M16 14v.5" />
+          <path d="M11.25 16.25h1.5L12 17l-.75-.75Z" />
+        </svg>
+      </div>
+    </div>
+
     <header>
-    <h1>Kasside foorum</h1>
-    <p>Kõik, mida üks kassiomanik vajab</p>
+      <h1>Kasside foorum</h1>
+      <p>Kõik, mida üks kassiomanik vajab</p>
     </header>
 
-    <nav>
-        <a href="home.html">Avaleht</a>
-        <a href="foorum.html">Foorum</a>
-        <a href="plinko.html">Plinko</a>
-    </nav>
-
     <main>
-        <section class="kategooriad">
-            <h2>Foorumi kategooriad</h2>
-            
-            <a href ="#" class="kategooria">
-                <h3>🐱 Üldine kassijutt</h3>
-                <p>Kõik kassidega seotud teemad</p>
-            </a>
-            <a href ="#" class="kategooria">
-                <h3>😻 Tutvusta oma kassi</h3>
-                <p>Jaga pilte ja lugusid oma kassist</p>
-            </a>
+      <section class="kategooriad">
+        <h2>Foorumi kategooriad</h2>
 
-            <a href ="#" class="kategooria">
-                <h3>📸 Kasside pildid ja videod</h3>
-                <p>Jaga naljakaid või toredaid hetki</p>
-            </a>
+        <a href="#" class="kategooria">
+          <h3>🐱 Üldine kassijutt</h3>
+          <p>Kõik kassidega seotud teemad</p>
+        </a>
+        <a href="#" class="kategooria">
+          <h3>😻 Tutvusta oma kassi</h3>
+          <p>Jaga pilte ja lugusid oma kassist</p>
+        </a>
 
-            <a href ="#" class="kategooria">
-                <h3>🩺 Kasside tervis</h3>
-                <p>Haigused, sümptomid ja tervisemured</p>
-            </a>
-            <a href ="#" class="kategooria">
-                <h3>🥣 Kasside toitumine</h3>
-                <p>Toidusoovitused või toitmise küsimused</p>
-            </a>
+        <a href="#" class="kategooria">
+          <h3>📸 Kasside pildid ja videod</h3>
+          <p>Jaga naljakaid või toredaid hetki</p>
+        </a>
 
-            <a href ="#" class="kategooria">
-                <h3>🏠 Kasside adopteerimine</h3>
-                <p>Paku kassile uus kodu</p>
-            </a>
+        <a href="#" class="kategooria">
+          <h3>🩺 Kasside tervis</h3>
+          <p>Haigused, sümptomid ja tervisemured</p>
+        </a>
+        <a href="#" class="kategooria">
+          <h3>🥣 Kasside toitumine</h3>
+          <p>Toidusoovitused või toitmise küsimused</p>
+        </a>
 
-             <a href ="#" class="kategooria">
-                <h3>🎓 Kasside õpetamine</h3>
-                <p>Nipid ja nõuanded kasside kasvatamiseks</p>
-            </a>
-        </section>
+        <a href="#" class="kategooria">
+          <h3>🏠 Kasside adopteerimine</h3>
+          <p>Paku kassile uus kodu</p>
+        </a>
 
-        <section class="edetabel">
-            <h2>🏆 Top 10 kassi</h2>
+        <a href="#" class="kategooria">
+          <h3>🎓 Kasside õpetamine</h3>
+          <p>Nipid ja nõuanded kasside kasvatamiseks</p>
+        </a>
+      </section>
 
-            <div class="top2">
-                <div class="kass">
-                <img src="../images/kass1.jpg" alt="Miisu">
-                    <h3>🥇 Miisu</h3>
-                    <button class="like" data-id="kass1" data-likes="150">
-                        ❤️ 150
-                     </button>
+      <section class="edetabel">
+        <h2>🏆 Top 10 kassi</h2>
 
-                </div>
+        <div class="top2">
+          <div class="kass">
+            <img src="../images/kass1.jpg" alt="Miisu" />
+            <h3>🥇 Miisu</h3>
+            <button class="like" data-id="kass1" data-likes="150">
+              ❤️ 150
+            </button>
+          </div>
 
-                <div class="kass">
-                    <img src="../images/kass2.jpg" alt="Pätu">
-                    <h3>🥈 Pätu</h3>
-                    <button class="like" data-id="kass2" data-likes="130">
-                        ❤️ 130
-                     </button>
-                </div>
+          <div class="kass">
+            <img src="../images/kass2.jpg" alt="Pätu" />
+            <h3>🥈 Pätu</h3>
+            <button class="like" data-id="kass2" data-likes="130">
+              ❤️ 130
+            </button>
+          </div>
+        </div>
 
-              </div>  
+        <div class="top10">
+          <div class="kass">
+            <img src="../images/kass3.jpg" alt="Oreo" />
+            <h3>3. Oreo</h3>
+            <button class="like" data-id="kass3" data-likes="112">
+              ❤️ 112
+            </button>
+          </div>
 
-            <div class="top10">
-                <div class="kass">
-                    <img src="../images/kass3.jpg" alt="Oreo">
-                    <h3>3. Oreo</h3>
-                    <button class="like" data-id="kass3" data-likes="112">
-                        ❤️ 112
-                     </button>
-                </div>
+          <div class="kass">
+            <img src="../images/kass4.jpg" alt="Muri" />
+            <h3>4. Muri</h3>
+            <button class="like" data-id="kass4" data-likes="107">
+              ❤️ 107
+            </button>
+          </div>
 
-                <div class="kass">
-                    <img src="../images/kass4.jpg" alt="Muri">
-                    <h3>4. Muri</h3>
-                    <button class="like" data-id="kass4" data-likes="107">
-                        ❤️ 107
-                     </button>
-                </div>
+          <div class="kass">
+            <img src="../images/kass5.jpg" alt="Simba" />
+            <h3>5. Simba</h3>
+            <button class="like" data-id="kass5" data-likes="99">❤️ 99</button>
+          </div>
 
-                <div class="kass">
-                    <img src="../images/kass5.jpg" alt="Simba">
-                    <h3>5. Simba</h3>
-                    <button class="like" data-id="kass5" data-likes="99">
-                        ❤️ 99
-                     </button>
-                </div>
+          <div class="kass">
+            <img src="../images/kass6.jpg" alt="Bella" />
+            <h3>6. Bella</h3>
+            <button class="like" data-id="kass6" data-likes="92">❤️ 92</button>
+          </div>
 
-                <div class="kass">
-                    <img src="../images/kass6.jpg" alt="Bella">
-                    <h3>6. Bella</h3>
-                    <button class="like" data-id="kass6" data-likes="92">
-                        ❤️ 92
-                     </button>
-                </div>
-                
-                <div class="kass">
-                    <img src="../images/kass7.jpg" alt="Pipi">
-                    <h3>7. Pipi</h3>
-                    <button class="like" data-id="kass7" data-likes="74">
-                        ❤️ 74
-                     </button>
-                </div>
+          <div class="kass">
+            <img src="../images/kass7.jpg" alt="Pipi" />
+            <h3>7. Pipi</h3>
+            <button class="like" data-id="kass7" data-likes="74">❤️ 74</button>
+          </div>
 
-                <div class="kass">
-                    <img src="../images/kass8.jpg" alt="Lumi">
-                    <h3>8. Lumi</h3>
-                    <button class="like" data-id="kass8" data-likes="70">
-                        ❤️ 70
-                     </button>
-                </div>
+          <div class="kass">
+            <img src="../images/kass8.jpg" alt="Lumi" />
+            <h3>8. Lumi</h3>
+            <button class="like" data-id="kass8" data-likes="70">❤️ 70</button>
+          </div>
 
-                <div class="kass">
-                    <img src="../images/kass9.jpg" alt="Krõbin">
-                    <h3>9. Krõbin</h3>
-                    <button class="like" data-id="kass9" data-likes="66">
-                        ❤️ 66
-                     </button>
-                </div>
+          <div class="kass">
+            <img src="../images/kass9.jpg" alt="Krõbin" />
+            <h3>9. Krõbin</h3>
+            <button class="like" data-id="kass9" data-likes="66">❤️ 66</button>
+          </div>
 
-                <div class="kass">
-                    <img src="../images/kass10.jpg" alt="Leo">
-                    <h3>10. Leo</h3>
-                    <button class="like" data-id="kass10" data-likes="63">
-                        ❤️ 63
-                     </button>
-                </div>
-
-            </div>
-        </section>
-
+          <div class="kass">
+            <img src="../images/kass10.jpg" alt="Leo" />
+            <h3>10. Leo</h3>
+            <button class="like" data-id="kass10" data-likes="63">❤️ 63</button>
+          </div>
+        </div>
+      </section>
     </main>
 
     <script src="../js_scripts/foorum.js"></script>
-</body>
+  </body>
 </html>
