@@ -1,13 +1,39 @@
 let hunger = document.getElementById("hunger");
 let kassitoit = document.getElementById("kassitoit");
-
 let img = document.getElementById("syda");
-let toit_kogus = 100;
-kassitoit.textContent = toit_kogus;
+
+const KASSITOIT_STORAGE = "kassitoit_storage";
+const HUNGER_STORAGE = "hunger_storage";
+
+function init_storage_element(element) {
+  const alguses = localStorage.getItem(element);
+  const parsitud = alguses == null ? 100 : Number(alguses);
+  return Number.isFinite(parsitud) ? parsitud : 100;
+}
+
+function uuendaToitKogus(uus) {
+  toit_kogus = Math.max(0, uus);
+  localStorage.setItem(KASSITOIT_STORAGE, String(toit_kogus));
+  if (kassitoit) {
+    kassitoit.textContent = Math.round(toit_kogus * 100) / 100;
+  }
+}
+
+let toit_kogus = init_storage_element(KASSITOIT_STORAGE);
+if (kassitoit) {
+  kassitoit.textContent = Math.round(toit_kogus * 100) / 100;
+}
+
+function uuenda_nalg(uus) {
+  const valid = Math.max(0, Math.min(100, uus));
+  localStorage.setItem(HUNGER_STORAGE, String(valid));
+  if (hunger) {
+    hunger.value = valid;
+  }
+  return valid;
+}
 
 // võib-olla toidu kogus ja hunger väärtus säilivad läbi sessioonide
-localStorage.setItem("hunger", hunger);
-localStorage.setItem("kassitoit", kassitoit);
 
 // Tühja ruumi oli jube palju.
 const tsitaadid = [
@@ -38,44 +64,39 @@ function kuvaTsitaat() {
 
 //Marcus Kikerpill
 
-document.addEventListener("DOMContentLoaded", kuvaTsitaat);
-
 // toggle image "syda.png"
-
-async function toggleImg() {
-  if (hunger.value >= 100) {
-    alert("Pets pole näljane");
-  }
-
-  // Kui toitu on alla 5, siis käitub nii muidu läheks toit negatiivseks
-  else if (toit_kogus < 5 && toit_kogus > 0) {
-    img.hidden = !img.hidden;
-    hunger.value = Math.min(100, hunger.value + toit_kogus);
-    toit_kogus = 0;
-    kassitoit.textContent = toit_kogus;
-    await sleep(500);
-    img.hidden = !img.hidden;
-  } else if (toit_kogus > 0) {
-    img.hidden = !img.hidden;
-    hunger.value = Math.min(100, hunger.value + 5);
-    toit_kogus -= 5;
-    kassitoit.textContent = toit_kogus;
-    await sleep(500);
-    img.hidden = !img.hidden;
-  } else {
-    alert("Toit otsas, mine mangi plinkot");
-  }
+if (hunger) {
+  const praegune_nalg = init_storage_element(HUNGER_STORAGE);
+  uuenda_nalg(praegune_nalg);
 }
 
-//Marcus Kikerpill
+async function toggleImg() {
+  if (!hunger) {
+    return;
+  }
 
-function kuvaTsitaat() {
-  const index = Math.floor(Math.random() * tsitaadid.length);
-  const element = document.getElementById("tsitaat");
+  if (praegune_nalg >= 100) {
+    alert("Pets pole näljane");
+    return;
+  }
 
-  if (element) {
-    // määrab elemendi "tsitaat sisuks suvalise tsitaadi"
-    element.textContent = `"${tsitaadid[index]}"`;
+  if (toit_kogus <= 0) {
+    alert("Toit otsas, mine mangi plinkot");
+    return;
+  }
+
+  // Kui toitu on alla 5, kasutame kogu allesjäänud toidu
+  const kuluv = Math.min(5, toit_kogus);
+  const uus_nalg = Math.min(100, praegune_nalg + kuluv);
+
+  hunger.value = uus_nalg;
+  localStorage.setItem("hunger_storage", HUNGER_STORAGE);
+  uuendaToitKogus(uus_nalg);
+
+  if (img) {
+    img.hidden = false;
+    await sleep(500);
+    img.hidden = true;
   }
 }
 
@@ -92,10 +113,14 @@ async function sleep(ms) {
 
 // reaalne intervall = 300000
 function drainHungerMain() {
-  setInterval(drainHunger, 300);
+  if (!hunger) {
+    return;
+  }
+  setInterval(drainHunger, 300000);
   function drainHunger() {
-    if (hunger.value > 0) {
-      hunger.value -= 1;
+    const praegune_nalg = Number(hunger.value);
+    if (praegune_nalg > 0) {
+      uuenda_nalg(praegune_nalg - 1);
     } else {
       alert("PETS ON SURNUD!!!");
     }
@@ -103,5 +128,6 @@ function drainHungerMain() {
 }
 
 drainHungerMain();
+kuvaTsitaat();
 
 // Marcus Kikerpill

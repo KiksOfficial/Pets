@@ -24,31 +24,20 @@ const BALL_RADIUS = 9;
 const SLOT_COUNT = 9;
 const SLOT_HEIGHT = 75;
 const MULTIPLIERS = [
-  "7x",
-  "1x",
-  "0.5x",
-  "0.5x",
-  "0.25x",
-  "0.5x",
-  "0.5x",
-  "1x",
-  "7x",
+  "3x",
+  "1.2x",
+  "0.6x",
+  "0.4x",
+  "0.21x",
+  "0.4x",
+  "0.6x",
+  "1.2x",
+  "3x",
 ];
 
 const pegs = [];
 const balls = [];
 let lastResult = null;
-
-let hunger = document.getElementById("hunger");
-let kassitoit = document.getElementById("kassitoit");
-
-let img = document.getElementById("syda");
-let toit_kogus = 100;
-kassitoit.textContent = toit_kogus;
-
-// võib-olla toidu kogus ja hunger väärtus säilivad läbi sessioonide
-localStorage.setItem("hunger", hunger);
-localStorage.setItem("kassitoit", kassitoit);
 
 // Loo Plinko pulkade püramiid
 function createPegs() {
@@ -76,6 +65,9 @@ function createPegs() {
 
 // Loo uus pall ülaosast väikese juhusliku nihkega
 function spawnBall() {
+  if (toit_kogus == 0) {
+    return;
+  }
   const jitter = (Math.random() - 0.5) * 0.25;
   balls.push({
     x: canvas.width / 2 + jitter,
@@ -86,8 +78,7 @@ function spawnBall() {
     finished: false,
     alpha: 1,
   });
-  toit_kogus -= 2;
-  kassitoit.textContent = toit_kogus;
+  uuendaToitKogus(toit_kogus - 1);
 }
 
 // Uuenda palli asukohta ja põrkeid
@@ -156,9 +147,8 @@ function updateBalls() {
       );
 
       const multiplier = parseFloat(MULTIPLIERS[slotIndex]);
-      toit_kogus += multiplier * 2;
-      kassitoit.textContent = toit_kogus;
       lastResult = MULTIPLIERS[slotIndex];
+      uuendaToitKogus(toit_kogus + multiplier);
     }
   }
 }
@@ -246,58 +236,8 @@ function test() {
   }
 }
 
-dropBtn.addEventListener("click", test);
-// dropBtn.addEventListener("click", spawnBall);
-
-// toggle image "syda.png"
-
-async function toggleImg() {
-  if (hunger.value >= 100) {
-    alert("Pets pole näljane");
-  }
-
-  // Kui toitu on alla 5, siis käitub nii muidu läheks toit negatiivseks
-  else if (toit_kogus < 5 && toit_kogus > 0) {
-    img.hidden = !img.hidden;
-    hunger.value = Math.min(100, hunger.value + toit_kogus);
-    toit_kogus = 0;
-    kassitoit.textContent = toit_kogus;
-    await sleep(500);
-    img.hidden = !img.hidden;
-  } else if (toit_kogus > 0) {
-    img.hidden = !img.hidden;
-    hunger.value = Math.min(100, hunger.value + 5);
-    toit_kogus -= 5;
-    kassitoit.textContent = toit_kogus;
-    await sleep(500);
-    img.hidden = !img.hidden;
-  } else {
-    alert("Toit otsas, mine mangi plinkot");
-  }
-}
-
-//Marcus Kikerpill
-
-async function sleep(ms) {
-  await new Promise((resolve) => setTimeout(resolve, ms));
-}
-
-//  https://www.geeksforgeeks.org/javascript/what-is-the-javascript-version-of-sleep-method/
-
-// reaalne intervall = 300000
-function drainHungerMain() {
-  setInterval(drainHunger, 300);
-  function drainHunger() {
-    if (hunger.value > 0) {
-      hunger.value -= 1;
-    } else {
-      alert("PETS ON SURNUD!!!");
-    }
-  }
-}
-
-// Marcus Kikerpill
+//dropBtn.addEventListener("click", test);
+dropBtn.addEventListener("click", spawnBall);
 
 createPegs();
 loop();
-
